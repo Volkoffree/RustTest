@@ -2,7 +2,8 @@
     <div id="user">
         <div class="container user">
             <div class="user-avatar">
-              <img v-bind:src="'https://app.rast.ltd/' + user.user_info.path_to_photo" alt="avatarpic">
+              <img src="../images/no_image.jpg" v-if="!user.user_info.path_to_photo" alt="">
+              <img v-else v-bind:src="'https://app.rast.ltd/' + user.user_info.path_to_photo" alt="">
             </div>
             <div class="user-info">
               <h2 class="user-info-name">{{ user.user_info.first_name + ' ' + user.user_info.last_name }}</h2>
@@ -35,7 +36,6 @@ import UserAvatar from './user-avatar.vue'
 export default {
     computed: {
             user () {
-                console.log(this.$store.state.user.info.user_info)
                 return this.$store.state.user.info
             }
         }
@@ -48,9 +48,10 @@ export default {
 }
 .user-avatar img {
   width: 90%;
+  min-width: 220px;
   max-width: 250px;
   position: absolute;
-  top: -9vw;
+  top: -100px;
   left: 0;
   border: 1vw solid #fff;
   border-radius: 100vw;

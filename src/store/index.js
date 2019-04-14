@@ -6,15 +6,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         user: {
-        
-        info: {
-            images: {
-                data: ''
-            },
-            user_info: ''
-            
-        }
+            info: {
+                images: {
+                    data: ''
+                },
+                user_info: {
+                    user_id: ''
+                }
+            }
         },
-        posts: []
+        comments: ['hello'],
+        posts: [],
+        postsFiltred: []
     }
 })
